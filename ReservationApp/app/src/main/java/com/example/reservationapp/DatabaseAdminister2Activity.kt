@@ -45,7 +45,7 @@ class DatabaseAdminister2Activity : AppCompatActivity() {
             myRef2.child(getTime()).setValue(orderInfo)
         }
 
-        button_admin_btn_back.setOnClickListener {
+        button_admin2_btn_back.setOnClickListener {
             finish()
         }
     }
