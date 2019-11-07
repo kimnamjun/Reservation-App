@@ -53,14 +53,14 @@ class SignUpActivity : AppCompatActivity() {
     private fun createUserAccount(id: String, password: String) {
         mAuth.createUserWithEmailAndPassword(id, password).addOnCompleteListener(this) { task ->
             if (task.isSuccessful) {
-                Toast.makeText(baseContext, "회원 가입이 정상 처리 되었습니다.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@SignUpActivity, "회원 가입이 정상 처리 되었습니다.", Toast.LENGTH_SHORT).show()
             } else {
-                Toast.makeText(baseContext, "회원 가입 실패 (Firebase)", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@SignUpActivity, "회원 가입 실패 (Firebase)", Toast.LENGTH_SHORT).show()
             }
         }
+
         val myRef = database.getReference("UserList")
-        val user = mAuth.currentUser
-        var userInfo = UserInfo(user!!.email!!)
+        var userInfo = UserInfo(id)
         myRef.child(getTime()).setValue(userInfo)
     }
 
