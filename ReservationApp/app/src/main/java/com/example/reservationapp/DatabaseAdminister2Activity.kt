@@ -23,7 +23,7 @@ class DatabaseAdminister2Activity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_database_administer)
+        setContentView(R.layout.activity_database_administer2)
 
         var myRef1 = database.getReference("ReservationList")
         var myRef2 = database.getReference("OrderList")
