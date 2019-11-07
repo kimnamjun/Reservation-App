@@ -40,6 +40,11 @@ class LoginActivity : AppCompatActivity() {
             val intent = Intent(this, DatabaseAdministerActivity::class.java)
             startActivity(intent)
         }
+
+        button_loginActForgotPW2.setOnClickListener{
+            val intent = Intent(this, DatabaseAdminister2Activity::class.java)
+            startActivity(intent)
+        }
     }
 
     fun signIn(id:String, password:String){

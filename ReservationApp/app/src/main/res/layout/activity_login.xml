@@ -95,13 +95,23 @@
             android:textSize="10dp"/>
 
     <Button
-            android:id="@+id/button_loginActForgotPW"
+        android:id="@+id/button_loginActForgotPW"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/textView_loginActSpace"
+        app:layout_constraintLeft_toRightOf="@id/textView_loginActSpace"
+
+        android:text="DB 관리자"
+        android:textSize="10dp"/>
+
+    <Button
+            android:id="@+id/button_loginActForgotPW2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="@id/textView_loginActSpace"
+            app:layout_constraintTop_toBottomOf="@id/button_loginActForgotPW"
             app:layout_constraintLeft_toRightOf="@id/textView_loginActSpace"
 
-            android:text="DB 관리자"
+            android:text="DB 관리자2"
             android:textSize="10dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
