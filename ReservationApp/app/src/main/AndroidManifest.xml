@@ -27,6 +27,7 @@
         <activity android:name=".LoginActivity" />
         <activity android:name=".SignUpActivity" />
         <activity android:name=".DatabaseAdministerActivity" />
+        <activity android:name=".DatabaseAdminister2Activity" />
 
         <service
                 android:name=".MyFirebaseMessagingService"
