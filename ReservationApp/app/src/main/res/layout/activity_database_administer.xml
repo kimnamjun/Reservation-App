@@ -112,7 +112,7 @@
             app:layout_constraintRight_toRightOf="parent"
             android:layout_marginTop="30dp"
 
-            android:text="사용자 정보"
+            android:text="사용자 정보 (가급적 회원가입으로 만들 것)"
             android:textSize="15dp"/>
 
     <EditText

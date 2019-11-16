@@ -19,6 +19,10 @@ class DatabaseTestActivity : AppCompatActivity() {
     val database = FirebaseDatabase.getInstance()
     val mAuth = FirebaseAuth.getInstance()
 
+    var resName : String = "resName"
+    var userID : String = "userID"
+    var menuName : String = "menuNAme"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_database_test)
@@ -30,62 +34,36 @@ class DatabaseTestActivity : AppCompatActivity() {
 
         Toast.makeText(baseContext, "", Toast.LENGTH_SHORT).show()
 */
-        var resID = "Rest01"
-
-        var resName : String = "Rest Name Default"
-        var userID  : String = "No User Default"
-        var resTime : String = getTime()
-        var waitNum : String = "-1"
 
         //userInfo는 정보를 담고 toString 한 거
-        var userInfo : String
-        var myRef = database.getReference(resID)
+        var myRef = database.getReference("OrderList")
         var count = myRef.child("count").key?:"-1"
 
         var user = mAuth.currentUser
 
-        if (user != null) {
-            // Null이 될 수도?
-            userID = user.email!!
-        }
-        else{
-            userID = "No User"
-        }
-        textView_userIDedit.text = userID
-
         // QR 코드를 찍으면 실행되는 함수라고 가정한다.
         button_DB_submit.setOnClickListener{
-            if (user != null) {
-                // Null이 될 수도?
-                userID = user.email!!
-            }
-            else{
-                userID = "No User"
-            }
-            resName = editText_resName.text.toString()
-            resTime = getTime()
 
-            myRef = database.getReference(resID)
-
-            userInfo = ReservationInformation(resName, userID, resTime, -1).toString()
-
-            myRef.child("User ID").setValue(userID)
-            myRef.child("Restaurant Name").setValue(resName)
-            myRef.child("Reservation Time").setValue(resTime)
-            myRef.child("Waiting Number").setValue(waitNum)
-            myRef.child("UserInfo" + count.toInt()).setValue(userInfo)
         }
 
         myRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-                userInfo = dataSnapshot.child("UserInfo01").getValue(String::class.java)?:"User Info toString"
+                var orderInfoNum = dataSnapshot.childrenCount
+                var orderInfoList = dataSnapshot.children
+                var wantedID = "storypass@naver.com"
+                var iter = orderInfoList.iterator()
 
-                myRef = database.getReference(resID)
+                for(iter in orderInfoList){
+                    if(iter.child("userID").getValue(String::class.java) == wantedID){
+                        var temp2 = iter.child("menuName").getValue(String::class.java)
+                        textView_info1.text = wantedID
+                        textView_info2.text = temp2
+                    }
+                }
 
-                textView_userID.text = userID
-                textView_resName.text = resName
-                textView_resTime.text = resTime
-                textView_waitNum.text = userInfo
+//                var orderInfo = dataSnapshot.child("20191107191851").child("userID").getValue(String::class.java)
+//                textView_info1.text = orderInfo
+//                textView_info2.text = ""
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -94,14 +72,24 @@ class DatabaseTestActivity : AppCompatActivity() {
             }
         })
 
+        // 191113 바꾸기 전에 백업용
+//        myRef.addValueEventListener(object : ValueEventListener {
+//            override fun onDataChange(dataSnapshot: DataSnapshot) {
+//                userInfo = dataSnapshot.child("UserInfo01").getValue(String::class.java)?:"User Info toString"
+//
+//                textView_userID.text = userID
+//            }
+//
+//            override fun onCancelled(error: DatabaseError) {
+//                // Failed to read value
+//                Log.w("zxcv", "Failed to read value.", error.toException())
+//            }
+//        })
+
     }
 
     private fun getTime() : String{
         return SimpleDateFormat("yyyyMMddHHmmss").format(Date(System.currentTimeMillis()))
-    }
-
-    fun regReservation(){
-
     }
 
     companion object {

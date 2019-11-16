@@ -4,7 +4,7 @@ class ReservationInfo (resName : String, userID : String){
     var resName : String = resName
     var userID : String = userID
     var resTime : String? = ""
-    var waitNum : Int? = 0
+    var waitNum : Int? = -1
 
     constructor(resName : String, userID : String, resTime : String) : this(resName, userID){
         this.resName = resName

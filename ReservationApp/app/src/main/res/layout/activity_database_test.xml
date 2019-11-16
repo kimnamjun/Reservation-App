@@ -25,7 +25,7 @@
                 android:text="Blue Pot in KAU"/>
 
         <TextView
-                android:id="@+id/textView_userID"
+                android:id="@+id/textView_info1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toTopOf="parent"
@@ -35,30 +35,30 @@
                 android:textSize="10dp"/>
 
         <TextView
-                android:id="@+id/textView_resName"
+                android:id="@+id/textView_info2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/textView_userID"
+                app:layout_constraintTop_toBottomOf="@id/textView_info1"
                 app:layout_constraintRight_toRightOf="parent"
 
                 android:text="Text View Restaurant Name"
                 android:textSize="10dp"/>
 
         <TextView
-                android:id="@+id/textView_resTime"
+                android:id="@+id/textView_info3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/textView_resName"
+                app:layout_constraintTop_toBottomOf="@id/textView_info2"
                 app:layout_constraintRight_toRightOf="parent"
 
                 android:text="Text View Reservation Time"
                 android:textSize="10dp"/>
 
         <TextView
-                android:id="@+id/textView_waitNum"
+                android:id="@+id/textView_info4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/textView_resTime"
+                app:layout_constraintTop_toBottomOf="@id/textView_info3"
                 app:layout_constraintRight_toRightOf="parent"
 
                 android:text="Text View Waiting Number"

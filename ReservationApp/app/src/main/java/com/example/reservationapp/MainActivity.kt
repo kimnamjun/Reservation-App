@@ -77,6 +77,11 @@ class MainActivity : AppCompatActivity() {
             })
         // [END retrieve_current_token]
 
+        newActivity.setOnClickListener{
+            val intent = Intent(this, QrReservationActivity::class.java)
+            startActivity(intent)
+        }
+
         button_login.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)

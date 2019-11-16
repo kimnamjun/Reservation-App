@@ -27,6 +27,9 @@ class DatabaseAdminister2Activity : AppCompatActivity() {
 
         var myRef1 = database.getReference("ReservationList")
         var myRef2 = database.getReference("OrderList")
+        var myRef3 = database.getReference("RestaurantList")
+        var myRef4 = database.getReference("MenuList")
+        var myRef5 = database.getReference("UserList")
 
         button_admin2_btn1.setOnClickListener {
             var text11 = editText_admin2_edt11.text.toString()
@@ -43,6 +46,17 @@ class DatabaseAdminister2Activity : AppCompatActivity() {
             var text23 = editText_admin2_edt23.text.toString()
             var orderInfo = OrderInfo(text21, text22, text23)
             myRef2.child(getTime()).setValue(orderInfo)
+        }
+
+        button_admin2_reset.setOnClickListener {
+            var time = getTime()
+            myRef1.child(time).setValue(ReservationInfo("도미노 피자", "storypass@naver.com", time, 4))
+            myRef2.child(time).setValue(OrderInfo("도미노 피자", "storypass@naver.com", "더블 크러스트 이베리코 피자"))
+            myRef3.child(time).setValue(ResInfo("도미노 피자", 4))
+            myRef4.child(time).setValue(MenuInfo("도미노 피자", "블랙 타이거 슈림프 피자", 33900))
+            myRef4.child(time).setValue(MenuInfo("도미노 피자", "더블 크러스트 이베리코 피자", 33900))
+            myRef4.child(time).setValue(MenuInfo("도미노 피자", "미트 미트 미트 피자", 33900))
+            myRef5.child(time).setValue(UserInfo("storypass@naver.com"))
         }
 
         button_admin2_btn_back.setOnClickListener {

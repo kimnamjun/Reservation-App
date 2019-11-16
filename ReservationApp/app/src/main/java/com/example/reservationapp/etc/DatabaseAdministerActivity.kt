@@ -28,7 +28,7 @@ class DatabaseAdministerActivity : AppCompatActivity() {
 
         var myRef1 = database.getReference("RestaurantList")
         var myRef2 = database.getReference("MenuList")
-        var myRef3 = database.getReference("RestaurantList")
+        var myRef3 = database.getReference("UserList")
 
         button_admin_btn1.setOnClickListener {
             var text11 = editText_admin_edt11.text.toString()

@@ -9,9 +9,9 @@
 
     <application
             android:allowBackup="true"
-            android:icon="@mipmap/logo"
-            android:label="Reservation App"
-            android:roundIcon="@mipmap/logo"
+            android:icon="@mipmap/logo2"
+            android:label="[모바일SW] 식당 예약"
+            android:roundIcon="@mipmap/logo2"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
 
@@ -26,6 +26,7 @@
         <activity android:name=".DatabaseTestActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".SignUpActivity" />
+        <activity android:name=".QrReservationActivity" />
         <activity android:name=".DatabaseAdministerActivity" />
         <activity android:name=".DatabaseAdminister2Activity" />
 
