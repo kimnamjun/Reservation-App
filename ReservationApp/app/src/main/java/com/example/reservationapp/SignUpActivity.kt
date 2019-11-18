@@ -61,10 +61,26 @@ class SignUpActivity : AppCompatActivity() {
 
         val myRef = database.getReference("UserList")
         var userInfo = UserInfo(id)
-        myRef.child(getTime()).setValue(userInfo)
+        myRef.child(removeAt(id)).setValue(userInfo)
     }
 
     private fun getTime() : String{
         return SimpleDateFormat("yyyyMMddHHmmss").format(Date(System.currentTimeMillis()))
+    }
+
+    fun removeAt(userID : String) : String{
+        var returnString = ""
+        for((index, value) in userID.withIndex()){
+            if(value != '@' && value != '.'){
+                returnString += value
+            }
+            else if(value == '.'){
+                returnString += "DOT"
+            }
+            else{
+                returnString += "AT"
+            }
+        }
+        return returnString
     }
 }

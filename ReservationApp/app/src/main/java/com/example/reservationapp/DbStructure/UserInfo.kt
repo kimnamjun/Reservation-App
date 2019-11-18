@@ -8,4 +8,20 @@ class UserInfo (userID : String){
         this.userID = userID
         this.resName = resName
     }
+
+    fun removeAt() : String{
+        var returnString = ""
+        for((index, value) in userID.withIndex()){
+            if(value != '@' && value != '.'){
+                returnString += value
+            }
+            else if(value == '.'){
+                returnString += "DOT"
+            }
+            else{
+                returnString += "AT"
+            }
+        }
+        return returnString
+    }
 }

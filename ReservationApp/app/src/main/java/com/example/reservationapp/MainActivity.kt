@@ -87,10 +87,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        button_databaseActivity.setOnClickListener {
-            val intent = Intent(this, DatabaseTestActivity::class.java)
-            startActivity(intent)
-        }
+//        button_databaseActivity.setOnClickListener {
+//            val intent = Intent(this, DatabaseTestActivity::class.java)
+//            startActivity(intent)
+//        }
     }
 
     override fun onResume() {

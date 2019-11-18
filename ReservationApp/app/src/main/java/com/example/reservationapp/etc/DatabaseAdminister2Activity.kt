@@ -37,7 +37,7 @@ class DatabaseAdminister2Activity : AppCompatActivity() {
             var text13 = editText_admin2_edt13.text.toString()
             var text14 = editText_admin2_edt14.text.toString().toInt()
             var resInfo = ReservationInfo(text11, text12, text13, text14)
-            myRef1.child(getTime()).setValue(resInfo)
+            myRef1.child(text11).setValue(resInfo)
         }
 
         button_admin2_btn2.setOnClickListener {
@@ -45,18 +45,17 @@ class DatabaseAdminister2Activity : AppCompatActivity() {
             var text22 = editText_admin2_edt22.text.toString()
             var text23 = editText_admin2_edt23.text.toString()
             var orderInfo = OrderInfo(text21, text22, text23)
-            myRef2.child(getTime()).setValue(orderInfo)
+            myRef2.child(text21).setValue(orderInfo)
         }
 
         button_admin2_reset.setOnClickListener {
-            var time = getTime()
-            myRef1.child(time).setValue(ReservationInfo("도미노 피자", "storypass@naver.com", time, 4))
-            myRef2.child(time).setValue(OrderInfo("도미노 피자", "storypass@naver.com", "더블 크러스트 이베리코 피자"))
-            myRef3.child(time).setValue(ResInfo("도미노 피자", 4))
-            myRef4.child(time).setValue(MenuInfo("도미노 피자", "블랙 타이거 슈림프 피자", 33900))
-            myRef4.child(time).setValue(MenuInfo("도미노 피자", "더블 크러스트 이베리코 피자", 33900))
-            myRef4.child(time).setValue(MenuInfo("도미노 피자", "미트 미트 미트 피자", 33900))
-            myRef5.child(time).setValue(UserInfo("storypass@naver.com"))
+            myRef1.child("storypass@naver.com").setValue(ReservationInfo("도미노 피자", "storypass@naver.com", 4))
+            myRef2.child("storypass@naver.com").setValue(OrderInfo("도미노 피자", "storypass@naver.com", "더블 크러스트 이베리코 피자"))
+            myRef3.child("도미노 피자").setValue(ResInfo("도미노 피자", 4))
+            myRef4.child("도미노 피자").setValue(MenuInfo("도미노 피자", "블랙 타이거 슈림프 피자", 33900))
+            myRef4.child("도미노 피자").setValue(MenuInfo("도미노 피자", "더블 크러스트 이베리코 피자", 33900))
+            myRef4.child("도미노 피자").setValue(MenuInfo("도미노 피자", "미트 미트 미트 피자", 33900))
+            myRef5.child("storypass@naver.com").setValue(UserInfo("storypass@naver.com"))
         }
 
         button_admin2_btn_back.setOnClickListener {

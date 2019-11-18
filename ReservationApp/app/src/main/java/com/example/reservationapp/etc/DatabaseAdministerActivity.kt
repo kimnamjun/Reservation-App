@@ -34,7 +34,7 @@ class DatabaseAdministerActivity : AppCompatActivity() {
             var text11 = editText_admin_edt11.text.toString()
             var text12 = editText_admin_edt12.text.toString().toInt()
             var resInfo = ResInfo(text11, text12)
-            myRef1.child(getTime()).setValue(resInfo)
+            myRef1.child(text11).setValue(resInfo)
         }
 
         button_admin_btn2.setOnClickListener {
@@ -42,14 +42,14 @@ class DatabaseAdministerActivity : AppCompatActivity() {
             var text22 = editText_admin_edt22.text.toString()
             var text23 = editText_admin_edt23.text.toString().toInt()
             var menuInfo = MenuInfo(text21, text22, text23)
-            myRef2.child(getTime()).setValue(menuInfo)
+            myRef2.child(text22).setValue(menuInfo)
         }
 
         button_admin_btn3.setOnClickListener {
             var text31 = editText_admin_edt11.text.toString()
             var text32 = editText_admin_edt12.text.toString()
             var userInfo = UserInfo(text31, text32)
-            myRef3.child(getTime()).setValue(userInfo)
+            myRef3.child(removeAt(text31)).setValue(userInfo)
         }
 
         button_admin_btn_back.setOnClickListener {
@@ -59,5 +59,21 @@ class DatabaseAdministerActivity : AppCompatActivity() {
 
     private fun getTime() : String{
         return SimpleDateFormat("yyyyMMddHHmmss").format(Date(System.currentTimeMillis()))
+    }
+
+    fun removeAt(userID : String) : String{
+        var returnString = ""
+        for((index, value) in userID.withIndex()){
+            if(value != '@' && value != '.'){
+                returnString += value
+            }
+            else if(value == '.'){
+                returnString += "DOT"
+            }
+            else{
+                returnString += "AT"
+            }
+        }
+        return returnString
     }
 }

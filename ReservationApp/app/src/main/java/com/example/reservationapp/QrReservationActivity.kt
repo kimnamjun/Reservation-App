@@ -9,6 +9,7 @@ import android.webkit.WebViewClient
 import android.widget.Toast
 import com.example.reservationapp.DbStructure.ResInfo
 import com.example.reservationapp.DbStructure.ReservationInfo
+import com.example.reservationapp.DbStructure.UserInfo
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -26,6 +27,8 @@ class QrReservationActivity : AppCompatActivity() {
     val mAuth = FirebaseAuth.getInstance()
     var user = mAuth.currentUser
     var myRefReservation = database.getReference("ReservationList")
+    var myRefRestaurant = database.getReference("RestaurantList")
+    var myRefUser = database.getReference("UserList")
 
     var resName : String = ""
     var userID : String = ""
@@ -116,24 +119,34 @@ class QrReservationActivity : AppCompatActivity() {
         resName = qrResName
         resTime = getTime()
 
-        // TODO 시작
-        // 1. 식당에서 waitNum을 받아 온다..
-        // 2. 받아온 값에 1을 더한다.
-        // 3. 그 값을 식당 리스트(DB)에 수정한다.
-        // 4. 받아온 waitNum 값을 포함하여 예약 리스트(DB)에 추가한다.
+        myRefRestaurant.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                if(dataSnapshot.hasChild(resName)){
+                    waitNum = dataSnapshot.child(resName).child("waitNum").getValue(Int::class.java)!!
+                    waitNum += 1
+                    myRefRestaurant.child(resName).child("waitNum").setValue(waitNum)
+                }
+                else{
+                    Log.d("zxcv","Error? : dataSnapshot.hasCild(resName) == false")
+                }
 
-        // onDataChange에서 사용하는 것은 좋지 않아보임
-        // onDataChange말고도 값을 불러오는 방법이 있었으면 좋겠음
-        // child 값에 시간 정보 말고 다른 것을 넣어봐야 되나?
-        // TODO 끝
+                var reservationInfo = ReservationInfo(resName, userID, waitNum)
+                var userInfo = UserInfo(userID, resName)
 
-//        var reservationInfo = ReservationInfo(resName, userID, resTime)
-//
-//        // 대기 번호 없는 정보를 날리면 onDataChange에서 받아올거임
-//        myRefReservation.child(resTime).setValue(reservationInfo)
+                myRefReservation.child(removeAt(userID)).setValue(reservationInfo)
+                myRefUser.child(removeAt(userID)).setValue(userInfo)
 
-        // 위에꺼 잘되면 이거 뺄 예정
-        show()
+                show()
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                // Failed to read value
+                Log.w("zxcv", "Failed to read value.", error.toException())
+            }
+        })
+
+        myRefRestaurant.child("DataChangeEvent").setValue(0)
+        myRefRestaurant.child("DataChangeEvent").removeValue()
     }
 
     fun show(){
@@ -143,5 +156,22 @@ class QrReservationActivity : AppCompatActivity() {
 
     private fun getTime() : String{
         return SimpleDateFormat("yyyyMMddHHmmss").format(Date(System.currentTimeMillis()))
+    }
+
+    // 이메일에서 @를 없애고 AT으로 교체
+    fun removeAt(userID : String) : String{
+        var returnString = ""
+        for((index, value) in userID.withIndex()){
+            if(value != '@' && value != '.'){
+                returnString += value
+            }
+            else if(value == '.'){
+                returnString += "DOT"
+            }
+            else{
+                returnString += "AT"
+            }
+        }
+        return returnString
     }
 }
