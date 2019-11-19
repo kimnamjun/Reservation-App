@@ -46,6 +46,12 @@ class QrReservationActivity : AppCompatActivity() {
         initScan()
 
         cancle_reservation.setOnClickListener {
+
+            myRefReservation.child(removeAt(userID)).removeValue()
+
+            // TODO
+            // 식당에서 번호 하나 빼야 됩니다.
+
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
@@ -63,6 +69,9 @@ class QrReservationActivity : AppCompatActivity() {
 
                 if(dataSnapshot.child(removeAt(userID)).child("waitNum").getValue(Int::class.java) == 0){
                     startActivity(intentCallActivity)
+                }
+                else if(dataSnapshot.child(removeAt(userID)).child("waitNum").getValue(Int::class.java) != null && dataSnapshot.child(removeAt(userID)).child("waitNum").getValue(Int::class.java)!! > 0){
+                    text_number.text = dataSnapshot.child(removeAt(userID)).child("waitNum").getValue(Int::class.java).toString()
                 }
             }
 

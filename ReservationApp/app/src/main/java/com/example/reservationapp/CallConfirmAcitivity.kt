@@ -16,8 +16,9 @@ class CallConfirmAcitivity : AppCompatActivity() {
         //firebase에서 받았을때는 식당마다 받을꺼니깐 치킨집이면 순살 뼈, 이렇게 정해져있듯이 괜찮을듯
         //중국집이면 곱빼기이런거 추가하면 되듯이 optionlist는 가게마다 하나씩 적고 반영해도 ㄱㅊ
         //firebase에서 가져올때 되게 단순화 시키기 치킨집이면 순살,뼈라든지 짜장면집같은경우는 곱빼기 보통이라던지
-        OptionList("순살"),
-        OptionList("뼈")
+        OptionList("매운맛"),
+        OptionList("보통맛"),
+        OptionList("순한맛")
     )
    // https://recipes4dev.tistory.com/68
     //https://recipes4dev.tistory.com/59
