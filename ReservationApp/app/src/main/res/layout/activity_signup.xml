@@ -92,7 +92,8 @@
             app:layout_constraintRight_toRightOf="parent"
             android:layout_marginTop="30dp"
 
-            android:text="회원 가입"/>
+            android:text="회원 가입"
+            android:textSize="15dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

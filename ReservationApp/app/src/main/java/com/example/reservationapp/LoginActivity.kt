@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.reservationapp.etc.AdminActivity
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login.*
 
@@ -36,14 +37,10 @@ class LoginActivity : AppCompatActivity() {
             finish()
         }
 
-        button_loginActForgotPW.setOnClickListener{
-            val intent = Intent(this, DatabaseAdministerActivity::class.java)
+        button_loginActAdmin.setOnClickListener {
+            val intent = Intent(this, AdminActivity::class.java)
             startActivity(intent)
-        }
-
-        button_loginActForgotPW2.setOnClickListener{
-            val intent = Intent(this, DatabaseAdminister2Activity::class.java)
-            startActivity(intent)
+            finish()
         }
     }
 

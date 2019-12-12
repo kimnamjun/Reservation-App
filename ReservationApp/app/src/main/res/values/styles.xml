@@ -10,6 +10,9 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+    <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
+    <item name="android:windowBackground">@drawable/splashactivitydrawable</item>
+    </style>
     <style name="Transparent" parent="@style/Theme.AppCompat">
         <!--Titlebar 없애는 옵션
             true : Titlebar x

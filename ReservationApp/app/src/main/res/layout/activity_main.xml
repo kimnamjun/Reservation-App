@@ -6,37 +6,58 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".MainActivity"
-        android:background="@color/colorPrimary">
+        android:background="@color/mainBackground">
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="296dp"
+            android:layout_height="235dp"
+            android:layout_marginTop="30dp"
+            app:layout_constraintBottom_toTopOf="@id/newActivity"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/logo" />
 
         <ImageButton
-                android:id="@+id/newActivity"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:adjustViewBounds="true"
-                android:src="@drawable/lastqr2"
-                android:padding="0dp"
-                android:scaleType="fitCenter"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintHorizontal_bias="0.497"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.499" />
+            android:id="@+id/newActivity"
+            style="@android:style/Widget.DeviceDefault.ImageButton"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:background="#00FFFFFF"
+            android:padding="0dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/mainbuttonlogo"
+            app:layout_constraintBottom_toTopOf="@id/button_login"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/logo" />
 
         <Button
-                android:id="@+id/button_login"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="로그인"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+            android:id="@+id/button_login"
+            android:layout_width="202dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/colorPrimaryOrange"
+            android:text="로그인"
+            android:textColor="@color/colorPrimary"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/textView_showEmail"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/newActivity" />
 
         <TextView
-                android:id="@+id/textView_showEmail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="사용자 정보 없음"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/button_login" />
+            android:id="@+id/textView_showEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp"
+            android:text="사용자 정보 없음"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/button_login" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

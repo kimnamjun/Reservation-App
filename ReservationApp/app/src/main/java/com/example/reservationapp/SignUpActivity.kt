@@ -1,17 +1,12 @@
 package com.example.reservationapp
 
-import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.reservationapp.DbStructure.UserInfo
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_signup.*
-import java.text.SimpleDateFormat
-import java.util.*
-
 
 class SignUpActivity : AppCompatActivity() {
 
@@ -26,6 +21,7 @@ class SignUpActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
 
+        // validation
         button_signUpActSignUp.setOnClickListener {
             id = editText_signUpActID.text.toString()
             password = editText_signUpActPW.text.toString()
@@ -59,29 +55,9 @@ class SignUpActivity : AppCompatActivity() {
             }
         }
 
+        // 데이터베이스에 추가
         val myRef = database.getReference("UserList")
         var userInfo = UserInfo(id)
-        myRef.child(removeAt(id)).setValue(userInfo)
-    }
-
-    private fun getTime() : String{
-        return SimpleDateFormat("yyyyMMddHHmmss").format(Date(System.currentTimeMillis()))
-    }
-
-    // 이메일에서 @를 없애고 AT으로 교체, .을 없애고 DOT으로 교체
-    fun removeAt(userID : String) : String{
-        var returnString = ""
-        for((index, value) in userID.withIndex()){
-            if(value != '@' && value != '.'){
-                returnString += value
-            }
-            else if(value == '.'){
-                returnString += "DOT"
-            }
-            else{
-                returnString += "AT"
-            }
-        }
-        return returnString
+        myRef.child(userInfo.removeAt()).setValue(userInfo)
     }
 }

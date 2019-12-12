@@ -1,60 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".CallActivity"
-        android:background="@color/colorPrimary"
-        android:orientation="vertical">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CallActivity"
+    android:background="@color/mainBackground"
+    android:orientation="vertical">
 
     <TextView
-            android:id="@+id/text_storename"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="storename"
-            android:textColor="#000000"
-            android:textSize="40dp"
-            android:layout_gravity="center"
-            app:layout_constraintBottom_toTopOf="@id/space_downstorename"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        android:id="@+id/text_storename"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="낙원돈까스"
+        android:textColor="@color/colorPrimaryOrange"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/space_2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/space_top" />
 
     <TextView
-            android:id="@+id/cancle_reservation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="예약 취소"
-            android:layout_gravity="right"
-            android:textColor="#000000"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:textSize="20dp"/>
+        android:id="@+id/cancle_reservation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:text="예약 취소"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Space
-            android:id="@+id/space_downstorename"
-            android:layout_width="0dp"
-            android:layout_height="20dp"
-            app:layout_constraintBottom_toTopOf="@id/layout_list"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/text_storename" />
+        android:id="@+id/space_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/text_storename"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
-            android:id="@+id/layout_list"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/space_downstorename">
+    <Space
+        android:id="@+id/space_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/list_layout"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_storename" />
+
+    <ImageButton
+        android:id="@+id/bt_pay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:srcCompat="@drawable/pay" />
+
+    <ImageButton
+        android:id="@+id/bt_callham"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:srcCompat="@drawable/call" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/list_layout"
+        android:layout_width="0dp"
+        android:layout_height="500dp"
+        android:background="@drawable/menupan"
+        android:foregroundGravity="center"
+        app:layout_constraintBottom_toTopOf="@id/bt_pay"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_storename">
 
         <ListView
-                android:id="@+id/list_call"
-                android:layout_width="409dp"
-                android:layout_height="wrap_content" />
-    </LinearLayout>
+            android:id="@+id/list_call"
+            android:layout_width="0dp"
+            android:layout_height="400dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
 
-</LinearLayout>
+        </ListView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/text_총"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="총 :"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary"
+        android:textSize="23dp"
+        app:layout_constraintBottom_toTopOf="@id/bt_callham"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <TextView
+        android:id="@+id/text_all"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary"
+        android:textSize="23dp"
+        app:layout_constraintBottom_toTopOf="@id/bt_callham"
+        app:layout_constraintLeft_toRightOf="@id/text_총" />
+
+    <TextView
+        android:id="@+id/text_원"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="원"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary"
+        android:textSize="23dp"
+        app:layout_constraintBottom_toTopOf="@id/bt_callham"
+        app:layout_constraintLeft_toRightOf="@id/text_all" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
