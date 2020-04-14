@@ -15,26 +15,26 @@
 
 < 애플리케이션 구성 >
 
-> Main
->> Splash
->> Login
->>> Sign Up
->>> Admin ~~(삭제)~~
-> QR Scan
-> Waiting, Web View
-> Ordering
-> Payment
+- Main
+ - Splash
+ - Login
+   - Sign Up
+   - Admin ~~(삭제)~~
+- QR Scan
+- Waiting, Web View
+- Ordering
+- Payment
 
 
 < 사용 기술 >
 
-> Firebase : Google
->> Auth
->> Realtime DataBase (NoSQL)
->> Cloud Message
-> Android
->> UI/UX & Layout Design
->> List Adapter Pattern
->> Notification (Background Service)
-> QR code : ZXing
-> Payment API : KG 이니시스
+- Firebase : Google
+-- Auth
+-- Realtime DataBase (NoSQL)
+-- Cloud Message
+- Android
+-- UI/UX & Layout Design
+-- List Adapter Pattern
+-- Notification (Background Service)
+- QR code : ZXing
+- Payment API : KG 이니시스
