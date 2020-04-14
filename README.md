@@ -15,8 +15,8 @@
 
 < 애플리케이션 구성 >
 
-- Main
- - Splash
+> Main
+>> Splash
  - Login
    - Sign Up
    - Admin ~~(삭제)~~
