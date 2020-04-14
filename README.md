@@ -20,21 +20,21 @@
     - Login
         - Sign Up
         - Admin ~~(삭제)~~
-    - QR Scan
-    - Waiting, Web View
-    - Ordering
-    - Payment
+- QR Scan
+- Waiting, Web View
+- Ordering
+- Payment
 
 
 < 사용 기술 >
 
 - Firebase : Google
- - Auth
- - Realtime DataBase (NoSQL)
- - Cloud Message
+    - Auth
+    - Realtime DataBase (NoSQL)
+    - Cloud Message
 - Android
- - UI/UX & Layout Design
- - List Adapter Pattern
- - Notification (Background Service)
+    - UI/UX & Layout Design
+    - List Adapter Pattern
+    - Notification (Background Service)
 - QR code : ZXing
 - Payment API : KG 이니시스
