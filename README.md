@@ -6,8 +6,8 @@
 - QR 코드를 촬영하여 식당을 예약할 수 있는 안드로이드 모바일 앱
 - 이메일로 로그인, 웹 뷰 지원, 알림 및 주문 기능, 이니시스 결제
 
-![시작 화면](C:\Users\user\Desktop\메인.jpg)
-![예약 시스템](C:/Users/user/Desktop/예약.jpg)
+![시작 화면](C:\Users\user\test\메인.jpg)
+![예약 시스템](C:/Users/user/test/예약.jpg)
 ![알림 서비스](C:/Users/user/Desktop/알림.jpg)
 ![주문하기](C:/Users/user/Desktop/주문.jpg)
 ![결제하기](C:/Users/user/Desktop/결제.jpg)
