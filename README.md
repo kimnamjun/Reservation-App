@@ -15,15 +15,15 @@
 
 < 애플리케이션 구성 >
 
-> Main
->> Splash
->> Login
->>> Sign Up
->>> Admin ~~(삭제)~~
-> QR Scan
-> Waiting, Web View
-> Ordering
-> Payment
+- Main
+    - Splash
+    - Login
+        - Sign Up
+        - Admin ~~(삭제)~~
+    - QR Scan
+    - Waiting, Web View
+    - Ordering
+    - Payment
 
 
 < 사용 기술 >
