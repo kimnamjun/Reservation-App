@@ -17,13 +17,13 @@
 
 > Main
 >> Splash
- - Login
-   - Sign Up
-   - Admin ~~(삭제)~~
-- QR Scan
-- Waiting, Web View
-- Ordering
-- Payment
+>> Login
+>>> Sign Up
+>>> Admin ~~(삭제)~~
+> QR Scan
+> Waiting, Web View
+> Ordering
+> Payment
 
 
 < 사용 기술 >
