@@ -12,7 +12,6 @@
     - Splash
     - Login
         - Sign Up
-        - Admin ~~(삭제)~~
 - QR Scan
 - Waiting, Web View
 - Ordering
